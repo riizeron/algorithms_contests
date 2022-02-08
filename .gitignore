@@ -4,6 +4,8 @@
 /01_Algo/D_Algo_Genealogy
 /01_Algo/E_Algo_Final
 /*/.vscode
-
-
-
+*/*
+!*/
+!*/*.*
+!/**/
+!.gitignore
