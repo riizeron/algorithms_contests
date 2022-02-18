@@ -20,4 +20,6 @@ int main() {
             std::cout << "yes" << std::endl;
         }
     }
+    delete[] health;
+    return 0;
 }
