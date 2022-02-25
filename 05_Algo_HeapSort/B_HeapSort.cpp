@@ -90,11 +90,15 @@ int main() {
         std::cin >> elem;
         heap->insert(elem);
     }
-    int* res = heap->getSorted();
-    for (int i = 0; i < n; ++i) {
-        std::cout << res[i] << " ";
-    }
-    std::cout << std::endl;
+    heap->print();
+    std::cin >> elem;
+    heap->insert(elem);
+    heap->print();
+    // int* res = heap->getSorted();
+    // for (int i = 0; i < n; ++i) {
+    //     std::cout << res[i] << " ";
+    // }
+    // std::cout << std::endl;
 
     delete heap;
     return 0;
