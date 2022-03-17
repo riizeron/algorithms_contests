@@ -1,11 +1,11 @@
 #include <iostream>
 #include <utility>
 
-size_t partitionLomuto(int *arr, size_t first, size_t last) {
+int partitionLomuto(int *arr, int first, int last) {
     int pivot = arr[last];
     int index = first - 1;
 
-    for (size_t i = first; i < last; ++i) {
+    for (int i = first; i < last; ++i) {
         if (arr[i] <= pivot) {
             index++;
             std::swap(arr[index], arr[i]);
@@ -18,9 +18,9 @@ size_t partitionLomuto(int *arr, size_t first, size_t last) {
     return index + 1;
 }
 
-void quickSort(int *arr, int first, int last, size_t *counter) {
+void quickSort(int *arr, int first, int last, int *counter) {
     if (first < last) {
-        size_t pivot = partitionLomuto(arr, first, last);
+        int pivot = partitionLomuto(arr, first, last);
         quickSort(arr, first, pivot - 1, counter);
         quickSort(arr, pivot + 1, last, counter);
         (*counter)++;
@@ -36,7 +36,7 @@ int main() {
         std::cin >> arr[i];
     }
 
-    size_t counter = 0;
+    int counter = 0;
     quickSort(arr, 0, n - 1, &counter);
 
     counter = n == 1 ? 1 : counter;

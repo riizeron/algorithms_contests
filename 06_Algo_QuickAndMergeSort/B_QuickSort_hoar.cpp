@@ -1,11 +1,11 @@
 #include <iostream>
 #include <utility>
 
-int partitionHoar(int *arr, size_t first, size_t last) {
+int partitionHoar(int *arr, int first, int last) {
     int pivot = arr[first + (last - first) / 2];
 
-    size_t i = first;
-    size_t j = last;
+    int i = first;
+    int j = last;
 
     while (!false) {
         while (arr[i] < pivot) {
@@ -23,7 +23,7 @@ int partitionHoar(int *arr, size_t first, size_t last) {
     }
 }
 
-void quickSort(int *arr, size_t first, size_t last, size_t *counter) {
+void quickSort(int *arr, int first, int last, int *counter) {
     if (first < last) {
         int pivot = partitionHoar(arr, first, last);
         if (pivot >= 0) {
@@ -38,21 +38,21 @@ void quickSort(int *arr, size_t first, size_t last, size_t *counter) {
 }
 
 int main() {
-    size_t n;
+    int n;
     std::cin >> n;
 
     int *arr = new int[n];
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> arr[i];
     }
 
-    size_t counter = 0;
+    int counter = 0;
 
     quickSort(arr, 0, n - 1, &counter);
 
     counter = n == 1 ? 1 : counter;
     std::cout << counter - 1 << std::endl;
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cout << arr[i] << " ";
     }
     std::cout << std::endl;

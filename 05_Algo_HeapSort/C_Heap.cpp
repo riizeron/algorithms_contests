@@ -20,21 +20,21 @@ public:
 
     ~Heap();
 
-    size_t size() const;
+    int size() const;
     bool empty() const;
 
     void insert(const ValueType &);
     ValueType extract();
 
 private:
-    size_t size_;
+    int size_;
     std::vector<ValueType> arr_;
     void shiftDown(int);
     void shiftUp(int);
 };
 
 template <class ValueType>
-size_t Heap<ValueType>::size() const {
+int Heap<ValueType>::size() const {
     return size_;
 }
 

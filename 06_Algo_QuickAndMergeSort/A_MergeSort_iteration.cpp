@@ -1,11 +1,11 @@
 #include <iostream>
 
-void mergeArr(int *arr, size_t block_i, size_t size, size_t n) {
-    size_t left_i = 0;
-    size_t right_i = 0;
-    size_t left = block_i;
-    size_t mid = left + size;
-    size_t right = mid + size > n ? n : mid + size;
+void mergeArr(int *arr, int block_i, int size, int n) {
+    int left_i = 0;
+    int right_i = 0;
+    int left = block_i;
+    int mid = left + size;
+    int right = mid + size > n ? n : mid + size;
 
     int *block = new int[right - left];
 
@@ -36,25 +36,25 @@ void mergeArr(int *arr, size_t block_i, size_t size, size_t n) {
 }
 
 void mergeSort(int *arr, int n) {
-    for (size_t size_i = 1; size_i < n; size_i *= 2) {
-        for (size_t block_i = 0; block_i < n - size_i; block_i += 2 * size_i) {
+    for (int size_i = 1; size_i < n; size_i *= 2) {
+        for (int block_i = 0; block_i < n - size_i; block_i += 2 * size_i) {
             mergeArr(arr, block_i, size_i, n);
         }
     }
 }
 
 int main() {
-    size_t n;
+    int n;
     std::cin >> n;
     int *arr = new int[n];
 
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cin >> arr[i];
     }
 
     mergeSort(arr, n);
 
-    for (size_t i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         std::cout << arr[i] << " ";
     }
     std::cout << std::endl;

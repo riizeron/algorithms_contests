@@ -1,11 +1,11 @@
 #include <iostream>
 #include <utility>
 
-std::pair<int, int>* mergeArr(std::pair<int, int> *p1, size_t end1, std::pair<int, int> *p2, size_t end2) {
-    size_t start1 = 0, start2 = 0;
-    size_t start = start1;
-    size_t end = end2;
-    size_t index = 0;
+std::pair<int, int>* mergeArr(std::pair<int, int> *p1, int end1, std::pair<int, int> *p2, int end2) {
+    int start1 = 0, start2 = 0;
+    int start = start1;
+    int end = end2;
+    int index = 0;
     std::pair<int, int> *res = new std::pair<int, int>[end1 + end2];
 
     while (start1 < end1 && start2 < end2) {
@@ -21,12 +21,12 @@ std::pair<int, int>* mergeArr(std::pair<int, int> *p1, size_t end1, std::pair<in
     }
 
     if (start1 < end1) {
-        for (size_t i = start1; i < end1; ++i) {
+        for (int i = start1; i < end1; ++i) {
             res[index] = p1[i];
             index++;
         }
     } else {
-        for (size_t i = start2; i < end2; ++i) {
+        for (int i = start2; i < end2; ++i) {
             res[index] = p2[i];
             index++;
         }
@@ -68,8 +68,8 @@ int nearest(int64_t *arr, int n, int key) {
 int partition(std::pair<int, int> *arr, int first, int last) {
     int pivot = arr[first + (last - first) / 2].first;
 
-    size_t i = first;
-    size_t j = last;
+    int i = first;
+    int j = last;
 
     while (!false) {
         while (arr[i].first < pivot) {
